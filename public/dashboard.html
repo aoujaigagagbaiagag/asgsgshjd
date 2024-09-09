@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        #instagram-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        #instagram-url {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        #instagram-username {
+            padding-left: 90px; /* Adjust this to accommodate the Instagram text */
+            font-size: 14px;
+        }
+
+        button {
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <a href="https://discord.gg/your-invite-code" class="top-bar-left">Discord</a>
+            <div class="top-bar-right">
+                <a href="/">Home</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <h1>Edit Your Bio</h1>
+        <form action="/updatebio" method="POST">
+            <!-- The username is stored in session, no need to pass it as a hidden input -->
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" rows="4" required></textarea>
+            <label for="username">Instagram Username:</label>
+            <div id="instagram-container">
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <input type="text" id="link" name="link" required>
+            <button type="submit">Update Bio</button>
+        </form>
+    </main>
+    <script>
+        document.getElementById('username').addEventListener('input', function () {
+            const username = this.value;
+            document.getElementById('link').value = `https://instagram.com/${username}`;
+        });
+    </script>
+</body>
+</html>

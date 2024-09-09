@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Stress.rip</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* Additional styling to make main content smaller on edges and Discord button at the bottom */
+        main.container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #282828;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .discord-container {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .discord-btn {
+            background-color: #7289da;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .discord-btn:hover {
+            background-color: #5b6eae;
+        }
+
+        /* Additional styling for spacing between paragraphs */
+        .spaced-paragraphs p {
+            margin-bottom: 20px; /* Adjust this value for more or less space */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <a href="/" class="top-bar-left">Home</a>
+            <div class="top-bar-right">
+                <a href="https://discord.gg/your-invite-code">Discord</a>
+                <a href="login.html">Login</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container spaced-paragraphs">
+        <h1>Welcome to Stress.rip</h1>
+        <p>The free and easy-to-use bio link service that's simple to set up with fast support.</p>
+        <p>Click "Sign Up" to get started.</p>
+        <p>Click "Login" to login to your account.</p>
+    </main>
+
+    <div class="discord-container">
+        <a href="https://discord.gg/your-invite-code" class="discord-btn">Join our Discord</a>
+    </div>
+</body>
+</html>

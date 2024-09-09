@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .bio-container {
+            text-align: center;
+            background-color: #282828;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .bio-link {
+            color: #1d9bf0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .bio-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <main class="bio-container">
+        <h1 id="bio-username"></h1>
+        <p id="bio-text"></p>
+        <a id="bio-link" class="bio-link" href="#" target="_blank">Visit my link</a>
+    </main>
+
+    <script>
+        const username = window.location.pathname.split('/').pop();
+
+        if (!username) {
+            window.location.href = '/';
+        }
+
+        fetch(`/api/${username}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('bio-username').textContent = data.username;
+                document.getElementById('bio-text').textContent = data.bio;
+
+                const link = document.getElementById('bio-link');
+                link.href = data.link;
+                link.textContent = new URL(data.link).hostname;
+            })
+            .catch(error => {
+                console.error('Error fetching bio data:', error);
+                alert('Failed to load bio data.');
+            });
+    </script>
+</body>
+</html>
